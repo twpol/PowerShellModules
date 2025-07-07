@@ -2,6 +2,7 @@ $source = Split-Path -Parent $PSCommandPath
 $readme = "$source/README.md"
 
 Get-ChildItem -LiteralPath $source -Directory
+| Where-Object Name -NotLike '.*'
 | Import-Module
 
 $modules = Get-Module
