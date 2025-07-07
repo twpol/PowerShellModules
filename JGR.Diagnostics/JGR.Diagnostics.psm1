@@ -1,21 +1,10 @@
 function Get-CounterRawValue {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true)]
-        [string]
-        $Set,
-
-        [Parameter(Mandatory = $true)]
-        [string]
-        $IdentificationCounterName,
-
-        [Parameter(Mandatory = $true)]
-        [string[]]
-        $IdentificationCounterValues,
-
-        [Parameter(Mandatory = $true)]
-        [string[]]
-        $CounterNames
+        [Parameter(Mandatory = $true)][string]$Set,
+        [Parameter(Mandatory = $true)][string]$IdentificationCounterName,
+        [Parameter(Mandatory = $true)][string[]]$IdentificationCounterValues,
+        [Parameter(Mandatory = $true)][string[]]$CounterNames
     )
 
     $data = [System.Diagnostics.PerformanceCounterCategory]::new($Set).ReadCategory()

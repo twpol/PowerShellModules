@@ -1,13 +1,8 @@
 function Format-DateTime {
     [CmdletBinding()]
     param (
-        [Parameter()]
-        [datetime]
-        $DateTime,
-
-        [Parameter()]
-        [string]
-        $Format = 'HH:mm'
+        [Parameter()][datetime]$DateTime,
+        [Parameter()][string]$Format = 'HH:mm'
     )
 
     $rollover = $env:JGR_DAY_ROLLOVER ?? 0

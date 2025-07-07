@@ -1,9 +1,7 @@
 function Get-TempPersistence {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory)]
-        [string]
-        $Name
+        [Parameter(Mandatory)][string]$Name
     )
     $hash = [System.Security.Cryptography.SHA1Managed]::new() | ForEach-Object { $_.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($Name)) } | ForEach-Object { $_.ToString("X2") } | Join-String -Separator ''
     $hashFile = "$env:TEMP\JGR.Persistence-$hash.txt"
@@ -16,13 +14,8 @@ function Get-TempPersistence {
 function Set-TempPersistence {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory)]
-        [string]
-        $Name,
-
-        [Parameter(Mandatory)]
-        [psobject]
-        $Value
+        [Parameter(Mandatory)][string]$Name,
+        [Parameter(Mandatory)][psobject]$Value
     )
     $hash = [System.Security.Cryptography.SHA1Managed]::new() | ForEach-Object { $_.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($Name)) } | ForEach-Object { $_.ToString("X2") } | Join-String -Separator ''
     $hashFile = "$env:TEMP\JGR.Persistence-$hash.txt"
