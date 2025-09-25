@@ -21,5 +21,5 @@
 
 ## JGR.Persistence
 
-- `Get-TempPersistence [-Name] <string> [<CommonParameters>]`
+- `Get-TempPersistence [-Name] <string> [[-Default] <psobject>] [<CommonParameters>]`
 - `Set-TempPersistence [-Name] <string> [-Value] <psobject> [<CommonParameters>]`
